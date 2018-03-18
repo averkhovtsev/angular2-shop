@@ -1,0 +1,14 @@
+<div *ngIf="productsInCart().length > 0; else emptyCartTemplate">
+  <h4>Products in the cart:</h4>
+  <ul>
+    <li *ngFor="let product of productsInCart()">
+      <div><span>name: </span>{{product.name}}<span> price: </span>{{product.price}}</div><button (click)="onRemove(product)">Remove</button>
+    </li>
+  </ul>
+</div>
+
+<ng-template #emptyCartTemplate>
+  <h4>Products cart is empty</h4>
+</ng-template>
+
+

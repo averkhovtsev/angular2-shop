@@ -1,0 +1,9 @@
+<nav>
+  <a routerLink="/">Home</a>
+</nav>
+<h4>Product list:</h4>
+<ul>
+  <li *ngFor="let product of products">
+    <app-product [product]="product"></app-product>
+  </li>
+</ul>
