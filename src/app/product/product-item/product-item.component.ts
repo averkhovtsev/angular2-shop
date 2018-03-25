@@ -1,13 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Product} from "./model/product";
-import {CartService} from "../cart/service/cart.service";
+import {Product} from "../model/product";
+import {CartService} from "../../cart/cart.service";
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  selector: 'product-item',
+  templateUrl: './product-item.component.html',
+  styleUrls: ['./product-item.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ProductItemComponent implements OnInit {
 
   @Input() product: Product;
 

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CartService} from "./service/cart.service";
+import {CartService} from "./cart.service";
 import {Product} from "../product/model/product";
 
 @Component({
@@ -21,6 +21,14 @@ export class CartComponent implements OnInit {
 
   onRemove(product: Product): void {
     this.cartService.remove(product);
+  }
+
+  onClear(): void {
+    this.cartService.clear();
+  }
+
+  isEmpty(): boolean {
+    return this.cartService.isEmpty();
   }
 
 }

@@ -1,10 +1,14 @@
 import {Injectable} from "@angular/core";
-import {Product} from "../../product/model/product";
+import {Product} from "../product/model/product";
 
 @Injectable()
 export class CartService {
 
   private products: Array<Product> = [];
+
+  isEmpty(): boolean {
+    return this.products.length === 0;
+  }
 
   getAll(): Array<Product> {
     return this.products;
@@ -25,6 +29,6 @@ export class CartService {
   }
 
   clear(): void {
-    this.products.splice(0, this.products.length);
+    this.products = [];
   }
 }
