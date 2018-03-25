@@ -16,3 +16,18 @@ Task 1 (due date 19.03.2018) :
 - created app-routing module to be able to navigate through the app
 - configured route for product-list component to /products
 - added routing-outlet tag to the app template 
+
+Task 2 (due date 26.03.2018) :
+- created product and cart module
+- moved product-item and product-list to product module
+- moved cart-item and cart-list to cart module
+- created item and cart-item model classes
+- updated cart service to use item
+- updated cart list component to display items in the cart
+- added ability to change quantity of items in the cart
+- used ngClass on "Add to cart" button in product-item template
+- implemented ChangeBackgroundDirective by means of @HostListener's and @HostBinding
+- used change-background directive on cart-item in cart-list template
+- created header module/component (with projection)
+- used header component in  app, cart-list and product-list components
+

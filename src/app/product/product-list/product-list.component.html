@@ -1,9 +1,8 @@
-<nav>
-  <a routerLink="/">Home</a>
-</nav>
-<h4>Product list:</h4>
+<header>
+  <span header-text>Product list:</span>
+</header>
 <ul>
   <li *ngFor="let product of products">
-    <product-item [product]="product"></product-item>
+    <product-item [product]="product" (addToCart)="onAddToCart($event)"></product-item>
   </li>
 </ul>

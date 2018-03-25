@@ -1,27 +1,44 @@
 import {Injectable} from "@angular/core";
+import {Item} from "./model/item.model";
 import {Product} from "../product/model/product";
+import {CartItem} from "./model/cart-item.model";
 
 @Injectable()
 export class CartService {
 
-  private products: Array<Product> = [];
+  private sum: (prev: number, curr: number) => number = (p, c) => p + c;
+  private items: Array<Item> = [];
+
+  size() : number {
+    return this.items.length;
+  }
+
 
   isEmpty(): boolean {
-    return this.products.length === 0;
+    return this.items.length === 0;
   }
 
-  getAll(): Array<Product> {
-    return this.products;
+  getAll(): Array<Item> {
+    return this.items;
   }
 
-  add(product: Product): void {
-    this.products.push(product);
+  addProduct(product: Product): void {
+    const item: Item = this.getById(product.id);
+    if (item) {
+      item.quantity++;
+    } else {
+      this.items.push(new CartItem(product.id, product.name, product.price, 1));
+    }
   }
 
-  remove(product: Product): boolean {
-    const i: number = this.products.findIndex(item => item.id === product.id);
+  getById(id: number): Item {
+    return this.items.find(item => item.id === id);
+  }
+
+  remove(item: Item): boolean {
+    const i: number = this.items.findIndex(i => i.id === item.id);
     if (i > -1) {
-      this.products.splice(i, 1);
+      this.items.splice(i, 1);
       return true;
     } else {
       return false;
@@ -29,6 +46,10 @@ export class CartService {
   }
 
   clear(): void {
-    this.products = [];
+    this.items = [];
+  }
+
+  getTotalPrice() : number {
+    return this.items.map(i=> i.quantity * i.price).reduce(this.sum, 0);
   }
 }

@@ -1,10 +1,12 @@
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+  <header>
+    <span header-text>Welcome to {{ title }}!</span>
+  </header>
 </div>
-<router-outlet></router-outlet>
 <nav>
   <a routerLink="/products">Products</a>
 </nav>
-<app-cart></app-cart>
+<nav>
+  <a routerLink="/cart">Cart ({{cartSize()}})</a>
+</nav>
+<router-outlet></router-outlet>

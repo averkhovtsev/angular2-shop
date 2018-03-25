@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {CartService} from "./cart/cart.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'shop';
+
+  constructor(private cartService: CartService) {
+  }
+
+  cartSize() : number {
+    return this.cartService.size();
+  }
+
 }
