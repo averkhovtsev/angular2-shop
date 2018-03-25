@@ -3,5 +3,5 @@
 <div><span>price: </span>{{product.price}}</div>
 <div><span>category: </span>{{product.category}}</div>
 <div><span>isAvailable: </span>{{product.isAvailable}}</div>
-<div><span>stores: </span>{{product.stores}}</div>
-<button (click)="onBuy()">Buy product</button>
+<div *ngIf="!!product.stores && product.stores.length > 0"><span>stores: </span>{{product.stores}}</div>
+<button (click)="onBuy()" [ngClass]="{'disabled': !product.isAvailable}">Add to cart</button>

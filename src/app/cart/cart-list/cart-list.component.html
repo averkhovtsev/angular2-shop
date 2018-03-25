@@ -1,0 +1,23 @@
+<div *ngIf="!isEmpty(); else emptyCartTemplate">
+  <header>
+    <span header-text>Items in the cart:</span>
+  </header>
+  <button (click)="onClear()">Clear all</button>
+  <ul>
+    <li *ngFor="let item of items">
+      <div change-background="blue">
+        <cart-item [item]="item"></cart-item>
+      </div>
+    </li>
+  </ul>
+  <span>Total items: {{totalItems}}</span>
+  <span>Total Price: {{getTotalPrice()}}</span>
+</div>
+
+<ng-template #emptyCartTemplate>
+  <header>
+    <span header-text>Products cart is empty</span>
+  </header>
+</ng-template>
+
+

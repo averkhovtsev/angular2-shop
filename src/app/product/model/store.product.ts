@@ -9,6 +9,6 @@ export class StoreProduct implements Product {
               public price: number,
               public category: Category,
               public isAvailable: boolean,
-              public stores: string[]) {
+              public stores?: string[]) {
   }
 }
