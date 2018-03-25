@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
-import {StoreProduct} from "../model/store.product";
-import {Product} from "../model/product";
-import {Category} from "../model/category";
+import {StoreProduct} from "./model/store.product";
+import {Product} from "./model/product";
+import {Category} from "./model/category";
 
 @Injectable()
 export class ProductService {
