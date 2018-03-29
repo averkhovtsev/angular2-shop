@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, Optional} from '@angular/core';
 import {CartService} from "./cart/cart.service";
+import {ConstantsService} from "./core/service/constants.service";
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,16 @@ import {CartService} from "./cart/cart.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'shop';
+  application: string;
+  version: string;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,
+              private constantsService: ConstantsService) {
+    this.application = this.constantsService.Application;
+    this.version = this.constantsService.Version;
   }
 
-  cartSize() : number {
+  cartSize(): number {
     return this.cartService.size();
   }
 

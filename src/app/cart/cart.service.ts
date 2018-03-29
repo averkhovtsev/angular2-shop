@@ -9,6 +9,9 @@ export class CartService {
   private sum: (prev: number, curr: number) => number = (p, c) => p + c;
   private items: Array<Item> = [];
 
+  constructor() {
+  }
+
   size() : number {
     return this.items.length;
   }
@@ -22,10 +25,10 @@ export class CartService {
     return this.items;
   }
 
-  addProduct(product: Product): void {
+  addProduct(product: Product, quantity: number = 1): void {
     const item: Item = this.getById(product.id);
     if (item) {
-      item.quantity++;
+      item.quantity = item.quantity + quantity;
     } else {
       this.items.push(new CartItem(product.id, product.name, product.price, 1));
     }

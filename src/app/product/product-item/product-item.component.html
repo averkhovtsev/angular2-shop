@@ -2,6 +2,6 @@
 <div><span>description: </span>{{product.description}}</div>
 <div><span>price: </span>{{product.price}}</div>
 <div><span>category: </span>{{product.category}}</div>
-<div><span>isAvailable: </span>{{product.isAvailable}}</div>
+<div><span>isAvailable: </span>{{product.isAvailable}}</div><span> hash: </span>{{hash}}
 <div *ngIf="!!product.stores && product.stores.length > 0"><span>stores: </span>{{product.stores}}</div>
 <button (click)="onBuy()" [ngClass]="{'disabled': !product.isAvailable}">Add to cart</button>

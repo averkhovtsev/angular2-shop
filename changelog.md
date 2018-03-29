@@ -31,3 +31,13 @@ Task 2 (due date 26.03.2018) :
 - created header module/component (with projection)
 - used header component in  app, cart-list and product-list components
 
+Task 3 (due date 30.03.2018) :
+- created core module
+- created ./core/service/local-storage.service and provided it in core module
+- created ./core/service/config-options.service
+- created ./core/service/constants.service and provided it in app module
+- created ./core/service/config-options.service
+- created ./core/service/generator.service (with factory) 
+    and provided it in product-item component
+    and optional in cart-item
+- created ./core/directive/change-font-weight.directive and applied it on cart-item 
