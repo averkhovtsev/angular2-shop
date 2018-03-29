@@ -3,6 +3,6 @@
 </header>
 <ul>
   <li *ngFor="let product of products">
-    <product-item [product]="product" (addToCart)="onAddToCart($event)"></product-item>
+    <product-item [product]="product" (addToCart)="onAddToCart($event)" change-font-weight="bold"></product-item>
   </li>
 </ul>

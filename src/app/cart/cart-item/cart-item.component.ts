@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Optional} from '@angular/core';
 import {CartService} from "../cart.service";
 import {Item} from "../model/item.model";
+import {GeneratorService} from "../../core/service/generator.service";
 
 @Component({
   selector: 'cart-item',
@@ -10,8 +11,11 @@ import {Item} from "../model/item.model";
 export class CartItemComponent implements OnInit {
 
   @Input() item: Item;
+  hash: string;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,
+              @Optional() private generatorService: GeneratorService) {
+    this.hash = this.generatorService && this.generatorService.generate();
   }
 
   ngOnInit() {
