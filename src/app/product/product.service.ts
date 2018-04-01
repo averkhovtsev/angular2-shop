@@ -15,8 +15,8 @@ export class ProductService {
     new StoreProduct(6, 'HP ProBook', 'HP ProBook', 12000, Category.LAPTOP, true, ['Comfy', 'Eldorado', 'PSShop'])
   ];
 
-  getAll(): Array<Product> {
-    return this.products;
+  getAll(): Promise<Array<Product>> {
+    return new Promise<Array<Product>>((resolve, reject) => setTimeout(() => resolve(this.products), 1000));
   }
 
 }

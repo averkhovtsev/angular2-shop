@@ -14,6 +14,9 @@ export class CartListComponent implements OnInit, AfterViewInit {
   items: Array<Item>;
   totalItems: number;
 
+  orderByField: string;
+  isAsc: boolean = false;
+
   constructor(private cartService: CartService) {
   }
 
@@ -27,7 +30,9 @@ export class CartListComponent implements OnInit, AfterViewInit {
       this.setTotalItems();
     });
   }
-
+  onDirectionChange(value: boolean) {
+    this.isAsc = value;
+  }
   setTotalItems() {
     setTimeout(() => {
       this.totalItems = this.itemComponents.length;
