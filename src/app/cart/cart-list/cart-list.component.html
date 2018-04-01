@@ -1,17 +1,28 @@
-<div *ngIf="!isEmpty(); else emptyCartTemplate">
+<div *ngIf="!isEmpty(); else emptyCartTemplate" xmlns="http://www.w3.org/1999/html">
   <header>
     <span header-text>Items in the cart:</span>
   </header>
-  <button (click)="onClear()">Clear all</button>
+  Order by:
+  <select [(ngModel)] = "orderByField">
+    <option value='name' selected>Product name</option>
+    <option value='price'>Price</option>
+    <option value='quantity'>Quantity</option>
+  </select>
+  <p>
+    <input type="radio" name="direction" (change)="onDirectionChange(true)"/>Asc
+      <input type="radio" name="direction" (change)="onDirectionChange(false)"/>Desc
+  </p>
+  <button (click)="onClear()">Clear cart</button>
+
   <ul>
-    <li *ngFor="let item of items">
+    <li *ngFor="let item of (items | orderBy: orderByField : isAsc)">
       <div change-background="blue">
         <cart-item [item]="item"></cart-item>
       </div>
     </li>
   </ul>
   <span>Total items: {{totalItems}}</span>
-  <span>Total Price: {{getTotalPrice()}}</span>
+  <span>Total Price: {{getTotalPrice() | currency: 'USD'}}</span>
 </div>
 
 <ng-template #emptyCartTemplate>

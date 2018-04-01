@@ -1,8 +1,8 @@
 export enum Category {
-  PS,
-  LAPTOP,
-  PRINTER,
-  SCREEN,
-  MOUSE,
-  KEYBOARD
+  PS = 'Personal Computer',
+  LAPTOP = 'Laptop',
+  PRINTER = 'Printer',
+  SCREEN = 'Screen',
+  MOUSE = 'Mouse',
+  KEYBOARD = 'Keyboard'
 }

@@ -10,6 +10,7 @@ import {ConstantsService} from "./core/service/constants.service";
 export class AppComponent {
   application: string;
   version: string;
+  today:number = Date.now();
 
   constructor(private cartService: CartService,
               private constantsService: ConstantsService) {

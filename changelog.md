@@ -41,3 +41,12 @@ Task 3 (due date 30.03.2018) :
     and provided it in product-item component
     and optional in cart-item
 - created ./core/directive/change-font-weight.directive and applied it on cart-item 
+
+Task 4 (due date 05.04.2018) :
+- applied currency pipe on totalPrice value (cart-list component)
+- applied date pipe on today value (app component)
+- applied uppercase pipe on category value (product-item component)
+- updated product service to return promise
+- applied async pipe to display products (product-list)
+- created order-by pipe, registered in it core module
+- applied order-by pipe to sort cart items (cart-list)
