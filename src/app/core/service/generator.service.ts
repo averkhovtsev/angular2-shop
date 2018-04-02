@@ -6,7 +6,6 @@ export const CHARACTERS_09:string[] = ['0', '1', '2', '3', '4', '5', '6', '7', '
 
 export const CHARACTERS_azAZ09: string[] = [...CHARACTERS_az, ...CHARACTERS_AZ, ...CHARACTERS_09];
 
-@Injectable()
 export class GeneratorService {
   private length: number;
 

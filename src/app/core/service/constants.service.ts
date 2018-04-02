@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
+import {InjectionToken} from "@angular/core";
 
-@Injectable()
-export class ConstantsService {
+export const CONSTANTS = new InjectionToken<ConstantsService>('ConstantsService');
 
-  constructor(public Application: string,
-              public Version: string) {
-  }
+export interface ConstantsService {
+
+  Application: string;
+  Version: string;
 
 }
