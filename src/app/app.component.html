@@ -2,7 +2,16 @@
   <header>
     <span header-text>Welcome to {{ application }} {{version}}!</span>
   </header>
-</div><div  style="text-align:right"><span>Today: {{today | date: 'short'}}</span></div>
+</div>
+<div style="text-align:right">
+  <span>{{getUsername()}}</span>
+  <a *ngIf="isAuthenticated()" (click)="logout()">Logout</a>
+  <a *ngIf="!isAuthenticated()" routerLink="/login">Login</a>
+  <span>Today: {{today | date: 'short'}}</span>
+</div>
+<nav *ngIf="isAdmin()">
+  <a routerLink="/admin">Admin</a>
+</nav>
 <nav>
   <a routerLink="/products">Products</a>
 </nav>

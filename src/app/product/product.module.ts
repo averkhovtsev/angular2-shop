@@ -7,14 +7,22 @@ import {ProductService} from './product.service';
 import {ProductListComponent} from "./product-list/product-list.component";
 import {HeaderModule} from "../header/header.module";
 import {CoreModule} from "../core/core.module";
+import {ProductRoutingModule} from "./product-routing.module";
+import { ProductViewComponent } from './product-view/product-view.component';
+import { ProductComponent } from './product.component';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, HeaderModule, CoreModule
+    CommonModule,
+    FormsModule,
+    CoreModule,
+    HeaderModule,
+
+    ProductRoutingModule
   ],
-  declarations: [ProductListComponent, ProductItemComponent],
+  declarations: [ProductListComponent, ProductItemComponent, ProductViewComponent, ProductComponent],
   providers: [ProductService],
-  exports: [ProductListComponent]
+  exports: []
 })
 export class ProductModule {
 }

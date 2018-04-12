@@ -50,3 +50,11 @@ Task 4 (due date 05.04.2018) :
 - applied async pipe to display products (product-list)
 - created order-by pipe, registered in it core module
 - applied order-by pipe to sort cart items (cart-list)
+
+Task 5 (due date 12.04.2018) :
+- created admin and admin-routing module
+- configured admin-routing module
+- introduced admin.guard to protect admin
+- implemented user.service to handle authentication
+- implemented login/logout
+- product editing to be implemeted

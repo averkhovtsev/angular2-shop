@@ -1,8 +1,5 @@
-<header>
-  <span header-text>Product list:</span>
-</header>
 <ul>
   <li *ngFor="let product of (products | async)">
-    <product-item [product]="product" (addToCart)="onAddToCart($event)" change-font-weight="bold"></product-item>
+    <product-item [product]="product" (addToCart)="onAddToCart($event)" (click)="onView(product.id)" change-font-weight="bold"></product-item>
   </li>
 </ul>

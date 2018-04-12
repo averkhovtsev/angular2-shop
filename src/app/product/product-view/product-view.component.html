@@ -1,0 +1,7 @@
+<div *ngIf="product">
+  <h4>Product view:</h4>
+  <div><span>description: </span>{{product.description}}</div>
+  <div *ngIf="!!product.stores && product.stores.length > 0"><span>stores: </span>{{product.stores}}</div>
+</div>
+<button (click)="onClose()">Close</button>
+
