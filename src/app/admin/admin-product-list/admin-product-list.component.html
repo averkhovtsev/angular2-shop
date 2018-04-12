@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let product of (products | async)">
+    <admin-product [product]="product"></admin-product>
+  </li>
+</ul>

@@ -1,0 +1,10 @@
+<span>id: {{product.id}} </span>
+<span>name: {{product.name}} </span>
+<span>price: {{product.price | currency: 'USD'}}</span>
+<span>category: {{product.category | uppercase}}</span>
+<span>isAvailable: {{product.isAvailable}}</span>
+
+<button *ngIf="!product.isAvailable" (click)="onAvailable()">Available</button>
+<button *ngIf="product.isAvailable" (click)="onNotAvailable()">Not Available</button>
+<button (click)="onRemove()">Remove</button>
+<button (click)="onEdit()">Edit</button>

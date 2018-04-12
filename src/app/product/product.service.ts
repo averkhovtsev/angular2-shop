@@ -19,4 +19,43 @@ export class ProductService {
     return new Promise<Array<Product>>((resolve, reject) => setTimeout(() => resolve(this.products), 1000));
   }
 
+  getById(id: number): Promise<Product> {
+    return new Promise<Product>((resolve, reject) => setTimeout(() => resolve(this.products.find(p => p.id === id)), 500));
+  }
+
+  remove(product: Product): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      const i: number = this.products.indexOf(product);
+      if (i > -1) {
+        this.products.splice(i, 1);
+        resolve(true);
+      } else {
+        reject({code: 2, message: "Product not found."});
+      }
+    });
+  }
+
+  available(product: Product): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      const i: number = this.products.indexOf(product);
+      if (i > -1) {
+        product.isAvailable = true;
+        resolve(true);
+      } else {
+        reject({code: 2, message: "Product not found."});
+      }
+    });
+  }
+
+  notAvailable(product: Product) {
+    return new Promise<boolean>((resolve, reject) => {
+      const i: number = this.products.indexOf(product);
+      if (i > -1) {
+        product.isAvailable = false;
+        resolve(true);
+      } else {
+        reject({code: 2, message: "Product not found."});
+      }
+    });
+  }
 }
