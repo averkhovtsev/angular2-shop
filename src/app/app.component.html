@@ -11,11 +11,7 @@
 </div>
 <nav *ngIf="isAdmin()">
   <a routerLink="/admin">Admin</a>
-</nav>
-<nav>
   <a routerLink="/products">Products</a>
-</nav>
-<nav>
   <a routerLink="/cart">Cart ({{cartSize()}})</a>
 </nav>
 <router-outlet></router-outlet>

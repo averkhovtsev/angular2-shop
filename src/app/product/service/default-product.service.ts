@@ -1,10 +1,13 @@
 import {Injectable} from "@angular/core";
-import {StoreProduct} from "./model/store.product";
-import {Product} from "./model/product";
-import {Category} from "./model/category";
+import {StoreProduct} from "../model/store.product";
+import {Product} from "../model/product";
+import {Category} from "../model/category";
+import {Observable} from "rxjs/Observable";
+import {of} from "rxjs/observable/of";
+import {ProductService} from "./product.service";
 
 @Injectable()
-export class ProductService {
+export class DefaultProductService implements ProductService {
 
   private products: Array<Product> = [
     new StoreProduct(1, 'Wireless Mouse', 'Bluetooth wireless super small mouse', 350, Category.MOUSE, true, []),
@@ -23,12 +26,12 @@ export class ProductService {
     return new Promise<Product>((resolve, reject) => setTimeout(() => resolve(this.products.find(p => p.id === id)), 500));
   }
 
-  remove(product: Product): Promise<boolean> {
-    return new Promise<boolean>((resolve, reject) => {
+  remove(product: Product): Promise<Product> {
+    return new Promise<Product>((resolve, reject) => {
       const i: number = this.products.indexOf(product);
       if (i > -1) {
         this.products.splice(i, 1);
-        resolve(true);
+        resolve(product);
       } else {
         reject({code: 2, message: "Product not found."});
       }
@@ -57,5 +60,17 @@ export class ProductService {
         reject({code: 2, message: "Product not found."});
       }
     });
+  }
+
+  saveOrUpdate(product: Product): Observable<Product> {
+    return product.id ? this.update(product) : this.save(product);
+  }
+
+  update(product: Product): Observable<Product> {
+    return of(product);
+  }
+
+  save(product: Product): Observable<Product> {
+    return of(product);
   }
 }

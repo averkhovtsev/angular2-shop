@@ -6,11 +6,11 @@ import {CartItemComponent} from './cart-item/cart-item.component';
 import {CartService} from './cart.service';
 import {CartListComponent} from "./cart-list/cart-list.component";
 import {HeaderModule} from "../header/header.module";
-import {CoreModule} from "../core/core.module";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, HeaderModule, CoreModule
+    CommonModule, FormsModule, SharedModule, HeaderModule
   ],
   declarations: [CartListComponent, CartItemComponent],
   providers: [CartService],

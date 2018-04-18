@@ -57,4 +57,14 @@ Task 5 (due date 12.04.2018) :
 - introduced admin.guard to protect admin
 - implemented user.service to handle authentication
 - implemented login/logout
-- product editing to be implemeted
+- product editing to be implemented
+
+Task 6 (due date 18.04.2018) :
+- general refactoring (moved all pipes and directives to shared module, 
+    all services, guards and interceptors to core module)
+- imported and set up json-server
+- implemented product add/edit (admin)
+- implemented http-product service
+- created default-headers interceptor to add Content-Type:application/json header to all requests
+- created timing interceptor to log time of all /products requests
+- loaded and stored settings from assets/app-settings.json
