@@ -1,0 +1,6 @@
+<button type="submit" (click)="onAdd()">Add</button>
+<ul>
+  <li *ngFor="let product of products">
+    <admin-product [product]="product" (remove)="onRemove($event)" (update)="onUpdate($event)"></admin-product>
+  </li>
+</ul>

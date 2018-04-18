@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Mouse",
+      "description": "Bluetooth wireless super small mouse",
+      "price": 350,
+      "category": "Mouse",
+      "isAvailable": true,
+      "stores": "Vasya,Dara,3"
+    },
+    {
+      "id": 2,
+      "name": "Monitor 22",
+      "description": "Samsung 22inch screen",
+      "price": 2500,
+      "category": "Screen",
+      "isAvailable": true,
+      "stores": []
+    },
+    {
+      "id": 3,
+      "name": "Monitor 20",
+      "description": "LG 20inch screen",
+      "price": 2300,
+      "category": "Screen",
+      "isAvailable": true,
+      "stores": []
+    },
+    {
+      "id": 4,
+      "name": "Standard Keyboard",
+      "description": "Logitech keyboard",
+      "price": 150,
+      "category": "Keyboard",
+      "isAvailable": true,
+      "stores": []
+    },
+    {
+      "id": 5,
+      "name": "Color Printer",
+      "description": "M590 Printer",
+      "price": 1350,
+      "category": "Printer",
+      "isAvailable": true,
+      "stores": []
+    }
+  ]
+}

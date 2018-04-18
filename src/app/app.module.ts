@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {InjectionToken, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 
@@ -11,20 +11,22 @@ import {HeaderModule} from "./header/header.module";
 import {ConfigOptionsService} from "./core/service/config-options.service";
 import {CoreModule} from "./core/core.module";
 import {CONSTANTS} from "./core/service/constants.service";
-import {ProductRoutingModule} from "./product/product-routing.module";
-import { PathNotFoundComponent } from './shared/path-not-found/path-not-found.component';
-import { LoginFormComponent } from './shared/login-form/login-form.component';
+import {PathNotFoundComponent} from './shared/path-not-found/path-not-found.component';
+import {LoginFormComponent} from './shared/login-form/login-form.component';
+import {SharedModule} from "./shared/shared.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PathNotFoundComponent,
-    LoginFormComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
+    HttpClientModule,
+
+    SharedModule,
     CoreModule,
 
     CartModule,

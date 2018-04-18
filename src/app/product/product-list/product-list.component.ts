@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Product} from "../model/product";
-import {ProductService} from "../product.service";
-import {CartService} from "../../cart/cart.service";
+import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {Product} from "../model/product";
+import {PRODUCT_SERVICE, ProductService} from "../service/product.service";
+import {CartService} from "../../cart/cart.service";
 
 @Component({
   selector: 'product-list',
@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit {
 
   products: Promise<Array<Product>>;
 
-  constructor(private productService: ProductService,
+  constructor(@Inject(PRODUCT_SERVICE) private productService: ProductService,
               private cartService: CartService,
               private route: ActivatedRoute,
               private router: Router) {

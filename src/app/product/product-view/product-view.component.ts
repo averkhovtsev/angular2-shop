@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Subscription} from "rxjs/Subscription";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../model/product";
-import {ProductService} from "../product.service";
+import {PRODUCT_SERVICE, ProductService} from "../service/product.service";
 
 @Component({
   selector: 'app-product-view',
@@ -15,7 +15,7 @@ export class ProductViewComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,
-              private productService: ProductService,
+              @Inject(PRODUCT_SERVICE) private productService: ProductService,
               private router: Router) {
   }
 
