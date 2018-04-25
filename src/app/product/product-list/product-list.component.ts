@@ -1,8 +1,12 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../model/product";
-import {PRODUCT_SERVICE, ProductService} from "../service/product.service";
 import {CartService} from "../../cart/cart.service";
+import {AppState} from "../../core/+store/app.state";
+import {select, Store} from "@ngrx/store";
+import {GetProducts, getProductsData, getProductsError} from "../../core/+store/products";
+import {Observable} from "rxjs/Observable";
+import {Go} from "../../core/+store/router";
 
 @Component({
   selector: 'product-list',
@@ -11,16 +15,19 @@ import {CartService} from "../../cart/cart.service";
 })
 export class ProductListComponent implements OnInit {
 
-  products: Promise<Array<Product>>;
+  products$: Observable<Array<Product>>;
+  productsError$: Observable<any>;
 
-  constructor(@Inject(PRODUCT_SERVICE) private productService: ProductService,
+  constructor(private store: Store<AppState>,
               private cartService: CartService,
-              private route: ActivatedRoute,
-              private router: Router) {
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.products = this.productService.getAll();
+    this.store.dispatch(new GetProducts());
+
+    this.products$ = this.store.pipe(select(getProductsData));
+    this.productsError$ = this.store.pipe(select(getProductsError));
   }
 
   onAddToCart(product: Product): void {
@@ -30,9 +37,7 @@ export class ProductListComponent implements OnInit {
   }
 
   onView(id: number): void {
-    //this.router.navigate([{ outlets: { productview: ['productview'] } }]);
-    // this.router.navigate([{outlets: {product: 'view'}}]);
-    this.router.navigate([{outlets: {product: [id]}}], {relativeTo: this.route});
+    this.store.dispatch(new Go({path: [{outlets: {product: [id]}}], extras: {relativeTo: this.route}}));
   }
 
 

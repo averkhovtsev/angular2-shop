@@ -12,15 +12,20 @@ import { ProductComponent } from './product.component';
 import {SharedModule} from "../shared/shared.module";
 import {HttpProductService} from "./service/http-product.service";
 import {DefaultProductService} from "./service/default-product.service";
+import {StoreModule} from "@ngrx/store";
+import {EffectsModule} from "@ngrx/effects";
+import {ProductsEffects, productsReducer} from "../core/+store/products";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
 
-
     SharedModule,
     HeaderModule,
+
+    StoreModule.forFeature('products', productsReducer),
+    EffectsModule.forFeature([ProductsEffects]),
 
     ProductRoutingModule
   ],

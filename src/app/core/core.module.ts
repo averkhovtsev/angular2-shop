@@ -6,10 +6,11 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {DefaultHeadersInterceptor} from "./interceptor/default-headers.interceptor";
 import {TimingInterceptor} from "./interceptor/timing.interceptor";
 import {AppSettingsService} from "./service/app-settings.service";
+import {CoreStoreModule} from "./+store/core-store.module";
 
 
 @NgModule({
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, CoreStoreModule],
   declarations: [],
   exports: [],
   providers: [
