@@ -3,6 +3,11 @@ import {Subscription} from "rxjs/Subscription";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../model/product";
 import {PRODUCT_SERVICE, ProductService} from "../service/product.service";
+import {Go} from "../../core/+store/router";
+import {AppState} from "../../core/+store/app.state";
+import {select, Store} from "@ngrx/store";
+import {getSelectedProductByUrl} from "../../core/+store/products";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-product-view',
@@ -10,27 +15,19 @@ import {PRODUCT_SERVICE, ProductService} from "../service/product.service";
   styleUrls: ['./product-view.component.css']
 })
 export class ProductViewComponent implements OnInit {
-  product: Product;
-  private sub: Subscription;
+  product$: Observable<Product>;
 
 
   constructor(private route: ActivatedRoute,
-              @Inject(PRODUCT_SERVICE) private productService: ProductService,
-              private router: Router) {
+              private store: Store<AppState>) {
   }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      this.productService.getById(+params['id']).then(p => this.product = p);
-    });
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.product$ = this.store.pipe(select(getSelectedProductByUrl));
   }
 
   onClose() {
-    this.router.navigate([{ outlets: null }], {relativeTo: this.route});
+    this.store.dispatch(new Go({path: [{outlets: null}], extras: {relativeTo: this.route}}));
   }
 
 }

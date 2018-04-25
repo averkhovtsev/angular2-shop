@@ -1,5 +1,6 @@
+<p *ngIf="(productsError$ | async) as errorMessage">{{errorMessage}}</p>
 <ul>
-  <li *ngFor="let product of (products | async)">
+  <li *ngFor="let product of (products$ | async)">
     <product-item [product]="product" (addToCart)="onAddToCart($event)" (click)="onView(product.id)" change-font-weight="bold"></product-item>
   </li>
 </ul>

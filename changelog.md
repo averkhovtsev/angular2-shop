@@ -68,3 +68,10 @@ Task 6 (due date 18.04.2018) :
 - created default-headers interceptor to add Content-Type:application/json header to all requests
 - created timing interceptor to log time of all /products requests
 - loaded and stored settings from assets/app-settings.json
+
+Task 7 (due date 25.04.2018) :
+- create app/products state
+- create actions/effects/reducer for products
+- imported NgRx/store module
+- updated product-list and product-view components to use store
+- introduced router store
