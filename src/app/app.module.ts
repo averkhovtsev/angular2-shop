@@ -11,10 +11,9 @@ import {HeaderModule} from "./header/header.module";
 import {ConfigOptionsService} from "./core/service/config-options.service";
 import {CoreModule} from "./core/core.module";
 import {CONSTANTS} from "./core/service/constants.service";
-import {PathNotFoundComponent} from './shared/path-not-found/path-not-found.component';
-import {LoginFormComponent} from './shared/login-form/login-form.component';
 import {SharedModule} from "./shared/shared.module";
 import {HttpClientModule} from "@angular/common/http";
+import {OrderModule} from "./order/order.module";
 
 @NgModule({
   declarations: [
@@ -32,6 +31,7 @@ import {HttpClientModule} from "@angular/common/http";
     CartModule,
     HeaderModule,
     ProductModule,
+    OrderModule,
 
     AppRoutingModule,
   ],

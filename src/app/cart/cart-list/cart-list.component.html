@@ -23,6 +23,7 @@
   </ul>
   <span>Total items: {{totalItems}}</span>
   <span>Total Price: {{getTotalPrice() | currency: 'USD'}}</span>
+  <button class="btn btn-primary" type="button" (click)="order()">Order</button>
 </div>
 
 <ng-template #emptyCartTemplate>

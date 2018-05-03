@@ -75,3 +75,11 @@ Task 7 (due date 25.04.2018) :
 - imported NgRx/store module
 - updated product-list and product-view components to use store
 - introduced router store
+
+Task 8 (due date 03.05.2018) :
+- added bootstrap.css
+- created order module with routing
+- created reactive order-from component
+- added name/email/phones to order form
+- added ability to add/remove phone
+- created custom validator for phone number
