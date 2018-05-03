@@ -9,8 +9,8 @@
   <a *ngIf="!isAuthenticated()" routerLink="/login">Login</a>
   <span>Today: {{today | date: 'short'}}</span>
 </div>
-<nav *ngIf="isAdmin()">
-  <a routerLink="/admin">Admin</a>
+<nav>
+  <a *ngIf="isAdmin()" routerLink="/admin">Admin</a>
   <a routerLink="/products">Products</a>
   <a routerLink="/cart">Cart ({{cartSize()}})</a>
 </nav>

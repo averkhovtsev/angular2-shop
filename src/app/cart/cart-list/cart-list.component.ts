@@ -2,6 +2,9 @@ import {AfterViewInit, Component, OnInit, QueryList, ViewChildren} from '@angula
 import {CartService} from "../cart.service";
 import {Item} from "../model/item.model";
 import {CartItemComponent} from "../cart-item/cart-item.component";
+import {Go} from "../../core/+store/router";
+import {AppState} from "../../core/+store/app.state";
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'cart-list',
@@ -17,7 +20,8 @@ export class CartListComponent implements OnInit, AfterViewInit {
   orderByField: string;
   isAsc: boolean = false;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,
+              private store: Store<AppState>) {
   }
 
   ngOnInit() {
@@ -51,5 +55,7 @@ export class CartListComponent implements OnInit, AfterViewInit {
     return this.cartService.getTotalPrice();
   }
 
-
+  order() {
+    this.store.dispatch(new Go({path: ['/order']}))
+  }
 }
