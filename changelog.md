@@ -83,3 +83,10 @@ Task 8 (due date 03.05.2018) :
 - added name/email/phones to order form
 - added ability to add/remove phone
 - created custom validator for phone number
+
+Task 9 (due date 10.05.2018) :
+- created test for cart-item.component
+- created test for cart-list.component
+- created test for cart.service
+- created test for app.component
+- created test for order-by.pipe
