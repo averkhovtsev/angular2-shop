@@ -9,10 +9,10 @@
     <option value='quantity'>Quantity</option>
   </select>
   <p>
-    <input type="radio" name="direction" (change)="onDirectionChange(true)"/>Asc
-      <input type="radio" name="direction" (change)="onDirectionChange(false)"/>Desc
+    <input type="radio" name="direction" (change)="onDirectionChange(true)">Asc
+    <input type="radio" name="direction" (change)="onDirectionChange(false)">Desc
   </p>
-  <button (click)="onClear()">Clear cart</button>
+  <button id="clearCart" (click)="onClear()">Clear cart</button>
 
   <ul>
     <li *ngFor="let item of (items | orderBy: orderByField : isAsc)">
@@ -23,7 +23,7 @@
   </ul>
   <span>Total items: {{totalItems}}</span>
   <span>Total Price: {{getTotalPrice() | currency: 'USD'}}</span>
-  <button class="btn btn-primary" type="button" (click)="order()">Order</button>
+  <button id="goToOrder" class="btn btn-primary" type="button" (click)="order()">Order</button>
 </div>
 
 <ng-template #emptyCartTemplate>
